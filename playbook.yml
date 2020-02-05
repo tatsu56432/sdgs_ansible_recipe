@@ -6,3 +6,4 @@
   roles:
     - apache
     - git
+    - mysql

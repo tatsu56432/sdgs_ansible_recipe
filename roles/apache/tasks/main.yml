@@ -1,4 +1,4 @@
-- name: ensure a list of packages installed
+- name: ensure a list of httpd packages installed
   yum:
     name: "{{ packages }}"
   vars:
