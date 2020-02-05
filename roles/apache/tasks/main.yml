@@ -1,8 +1,2 @@
-- name: ensure a list of httpd packages installed
-  yum:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - httpd
-      - httpd-tools
-      - httpd-devel
+---
+- include: install.yml

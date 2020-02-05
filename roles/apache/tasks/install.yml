@@ -1,0 +1,10 @@
+- name: ensure a list of httpd packages installed
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - httpd
+      - httpd-tools
+      - httpd-devel
+- name: service run httpd
+  service: name=httpd state=started enabled=yes
