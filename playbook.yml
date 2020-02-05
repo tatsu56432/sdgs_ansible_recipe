@@ -6,5 +6,5 @@
   roles:
     - apache
     - git
-    - mysql
     - php7
+    - mysql
