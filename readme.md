@@ -1,1 +1,7 @@
 ansibleを用いたlocal環境のprovisioningを行います
+
+todo
+apacheの設定
+mariadbのDB作成
+selinuxの無効化
+wordpressの設定ファイルの作成
