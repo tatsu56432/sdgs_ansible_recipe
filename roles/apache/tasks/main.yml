@@ -1,8 +1,8 @@
 - name: ensure a list of packages installed
-    yum:
-      name: "{{ packages }}"
-      vars:
-      packages:
-        - httpd
-        - httpd-tools
-        - mysql
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - httpd
+      - httpd-tools
+      - httpd-devel

@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   connection: local
-#  user: vagrant
+  user: vagrant
   roles:
-    -apache
-    -git
+    - apache
+    - git
