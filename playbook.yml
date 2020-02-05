@@ -3,7 +3,26 @@
   become: true
   connection: local
   user: vagrant
+  sudo: yes
   tasks:
+    - name: IUSのリポジトリを取得
+      get_url: url=https://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius-release-1.0-14.ius.centos7.noarch.rpm dest=/usr/local/src/ius-release-1.0-14.ius.centos7.noarch.rpm
+    - name: IUSのリポジトリをインストール
+      yum: name=/usr/local/src/ius-release-1.0-14.ius.centos7.noarch.rpm
+    - name: php70uをインストール
+      yum: name={{ item }} state=present
+      with_items:
+       - mod_php70u
+       - php70u-devel
+       - php70u-json
+       - php70u-common
+       - php70u-cli
+       - php70u-intl
+       - php70u-mcrypt
+       - php70u-opcache
+       - php70u-pdo
+       - php70u-mbstring
+       - php70u-mysqlnd
     - name: ensure a list of packages installed
       yum:
         name: "{{ packages }}"
@@ -11,4 +30,4 @@
         packages:
         - httpd
         - httpd-tools
-        - php
+        - mysql
