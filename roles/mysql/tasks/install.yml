@@ -1,36 +1,7 @@
----
-- name: MariaDB のクライアント＆サーバーをインストール
-    yum: name={{ item }} state=present
-    with_items:
+- name: install mariadb-package
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
       - mariadb
       - mariadb-server
-      - MySQL-python
-#- name: MariaDB を常時起動にする (サービスを有効化)
-#  service:
-#    name: mariadb
-#    state: started
-#    enabled: yes
-#    sudo: yes
-#- name: root アカウントのパスワードを設定
-#  mysql_user:
-#    name: root
-#    host: localhost
-#    password: "Bq6E29bZ"
-#- name: ~/.my.cnf を配置
-#  template:
-#    src: my.cnf.j2
-#    dest: "{{ lookup('env', 'HOME') }}/.my.cnf"
-#    mode: 0600
-#
-#- name: データベース wordpress を作成
-#  mysql_db:
-#    name: wordpress
-#    state: present
-#
-#- name: MySQLユーザー wordpress を作成し，wordpress.* にすべての権限を与える
-#  mysql_user:
-#    name: wordpress
-#    password: "{{ mysql_db_password }}"
-#    priv: "wordpress.*:ALL"
-#    host: localhost
-#    state: present
