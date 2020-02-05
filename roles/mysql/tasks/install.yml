@@ -5,3 +5,5 @@
     packages:
       - mariadb
       - mariadb-server
+- name: service run mariadb
+  service: name=mariadb  state=started enabled=yes
